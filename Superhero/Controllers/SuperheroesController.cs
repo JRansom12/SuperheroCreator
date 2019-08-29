@@ -28,7 +28,8 @@ namespace SuperheroProject.Controllers
         // GET: Superheroes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var superheroToDetail = context.Superheroes.Find(id);
+            return View(superheroToDetail);
         }
 
         // GET: Superheroes/Create
@@ -71,13 +72,12 @@ namespace SuperheroProject.Controllers
             {
                 // TODO: Add update logic here
                 Superhero superheroToEdit = context.Superheroes.Find(id);
-                //superheroToEdit.name = newName;
-                //superheroToEdit.alterEgo = newAlterEgo;
-                //superheroToEdit.primarySuperheroAbility = newPrimarySuperheroAbility;
-                //superheroToEdit.secondarySuperheroAbility = newSecondarySuperheroAbility;
-                //superheroToEdit.catchphrase = newCatchPhrase;
-                //context.SaveChanges();
-                //return RedirectToAction("Index");
+                superheroToEdit.name = Request.Form["name"];
+                superheroToEdit.alterEgo = Request.Form["alterEgo"];
+                superheroToEdit.primarySuperheroAbility = Request.Form["primarySuperheroAbility"];
+                superheroToEdit.secondarySuperheroAbility = Request.Form["secondarySuperheroAbility"];
+                superheroToEdit.catchphrase = Request.Form["catchphrase"];
+                context.SaveChanges();
                 return View(superheroToEdit);
             }
             catch
