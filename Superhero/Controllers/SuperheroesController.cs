@@ -17,7 +17,12 @@ namespace SuperheroProject.Controllers
         // GET: Superheroes
         public ActionResult Index()
         {
-            return View();
+            var model = new List<Superhero>();
+            foreach(var superhero in context.Superheroes)
+            {
+                model.Add(superhero);
+            }
+            return View(model);
         }
 
         // GET: Superheroes/Details/5
@@ -35,6 +40,7 @@ namespace SuperheroProject.Controllers
 
         // POST: Superheroes/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Superhero superhero)
         {
             try
@@ -53,31 +59,26 @@ namespace SuperheroProject.Controllers
         // GET: Superheroes/Edit/5
         public ActionResult Edit(int id)
         {
-            Superhero superheroToEdit = context.Superheroes.Find(id);
-            superheroToEdit.name = NewName;
-            superheroToEdit.alterEgo = newAlterEgo;
-            superheroToEdit.primarySuperheroAbility = newPrimarySuperheroAbility;
-            superheroToEdit.secondarySuperheroAbility = newSecondarySuperheroAbility;
-            superheroToEdit.catchphrase = newCatchPhrase;
-            context.SaveChanges();
+            var superheroToEdit = context.Superheroes.Find(id);
             return View(superheroToEdit);
         }
 
         // POST: Superheroes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Superhero superhero) //one parameter?
+        public ActionResult Edit(int id, Superhero superhero)
         {
             try
             {
                 // TODO: Add update logic here
-                Superhero superheroToEdit = context.Superheroes.FirstOrDefault(s => s.Id == id);
-                superheroToEdit.name = newName;
-                superheroToEdit.alterEgo = newAlterEgo;
-                superheroToEdit.primarySuperheroAbility = newPrimarySuperheroAbility;
-                superheroToEdit.secondarySuperheroAbility = newSecondarySuperheroAbility;
-                superheroToEdit.catchphrase = newCatchPhrase;
-                context.SaveChanges();
-                return RedirectToAction("Index");
+                Superhero superheroToEdit = context.Superheroes.Find(id);
+                //superheroToEdit.name = newName;
+                //superheroToEdit.alterEgo = newAlterEgo;
+                //superheroToEdit.primarySuperheroAbility = newPrimarySuperheroAbility;
+                //superheroToEdit.secondarySuperheroAbility = newSecondarySuperheroAbility;
+                //superheroToEdit.catchphrase = newCatchPhrase;
+                //context.SaveChanges();
+                //return RedirectToAction("Index");
+                return View(superheroToEdit);
             }
             catch
             {
@@ -95,7 +96,7 @@ namespace SuperheroProject.Controllers
         // POST: Superheroes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Superhero superhero) //only one parameter?
+        public ActionResult Delete(int id, Superhero superhero)
         {
             try
             {
