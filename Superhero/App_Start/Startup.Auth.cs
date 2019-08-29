@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Superhero.Models;
+using SuperheroProject.Models;
 
-namespace Superhero
+namespace SuperheroProject
 {
     public partial class Startup
     {

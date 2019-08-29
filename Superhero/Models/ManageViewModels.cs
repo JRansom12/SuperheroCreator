@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Superhero.Models
+namespace SuperheroProject.Models
 {
     public class IndexViewModel
     {

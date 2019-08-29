@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Superhero.Controllers
+namespace SuperheroProject.Controllers
 {
     public class HomeController : Controller
     {

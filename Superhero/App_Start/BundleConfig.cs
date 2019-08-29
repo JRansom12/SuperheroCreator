@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Superhero
+namespace SuperheroProject
 {
     public class BundleConfig
     {

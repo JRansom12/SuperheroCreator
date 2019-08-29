@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Superhero.Startup))]
-namespace Superhero
+[assembly: OwinStartupAttribute(typeof(SuperheroProject.Startup))]
+namespace SuperheroProject
 {
     public partial class Startup
     {

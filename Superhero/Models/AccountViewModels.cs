@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Superhero.Models
+namespace SuperheroProject.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
